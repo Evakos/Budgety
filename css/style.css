@@ -1,0 +1,7 @@
+.main-wrapper {
+    display: grid;
+}
+
+.main-nav {
+    display: flex;
+}
