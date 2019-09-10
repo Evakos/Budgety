@@ -1,0 +1,10 @@
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover';
+ 
+#{$a-tags} {
+  text-decoration: none;
+  @include transition(.3s);
+}
+#{$a-tags-hover} {
+
+}

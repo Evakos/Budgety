@@ -1,0 +1,20 @@
+.button-style {
+  border-radius: 3px;
+  padding: 7px 16px 8px;
+  display: inline-block;
+  background: #fff;
+  text-decoration: none;
+  vertical-align: top;
+  cursor: pointer;
+  color: #666;
+  border: none;
+  outline: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 14px;
+  @include transition(0.3s);
+}
+
+.button {
+  @extend .button-style;
+}
