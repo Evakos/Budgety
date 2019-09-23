@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.requireConfig": false,
+    "prettier.singleQuote": true,
+    "scss.lint.float": "warning"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "budgety",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-sass": "node-sass sass/main.scss css/style.css --watch",
+    "compile-sass": "node-sass sass/main.scss css/style.comp.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evakos/Budgety.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evakos/Budgety/issues"
+  },
+  "homepage": "https://github.com/Evakos/Budgety#readme",
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2"
+  }
+}

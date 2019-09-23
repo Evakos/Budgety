@@ -13,9 +13,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Budgety</title>
   <link rel="icon" type="image/png" sizes="16x16" href="">
-  <link rel="stylesheet" href="style/app.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
 
 <body>
@@ -24,10 +23,6 @@
     <div class="header-wrapper">
 
       <div class="header">
-
-
-
-
         <ul>
           <li><a href="#home">Home</a></li>
 
@@ -46,6 +41,7 @@
 
     </div>
 
+    <div class='messages'></div>
 
     <div class='container'>
       <div class='row'>
@@ -56,13 +52,9 @@
 
             <div class='col-header'>
 
-              <h1>Expense Details</h1>
+              <h1>Input Expense</h1>
 
             </div>
-
-
-
-
 
             <form id="expense-form">
 
@@ -70,17 +62,11 @@
 
               <div class="select-box">
 
-
-
                 <select id="type" class="select">
-
-
 
                 </select>
 
               </div>
-
-
 
               <label for="amount">Amount:</label>
 
@@ -88,8 +74,8 @@
 
 
 
-                <input type="text" placeholder="Enter Expense" onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Enter Expense'" id="amount">
+                <input type="text" placeholder="Enter Amount" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Enter Amount'" id="amount">
 
 
                 <!-- <a class="button" type="submit"><i class="fas fa-plus-circle"></i></a> -->
@@ -123,10 +109,19 @@
                 <tr>
                   <th>Type:</th>
                   <th>Expense:</th>
-                  <th></th>
+                 
                 </tr>
               </thead>
               <tbody id="expense-list"></tbody>
+              <tfoot>
+
+                  
+                <tr>
+
+                  <td>Total</td>
+                  <td id="sum"></td>
+                </tr>
+              </tfoot>
             </table>
 
 

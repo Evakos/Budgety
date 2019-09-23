@@ -1,8 +1,19 @@
-// Expense Constructor
+// Expense Constructor essential but still not sure why.
 
 function Expense(type, amount) {
   this.type = type;
   this.amount = amount;
+}
+
+// Create and Update Totals
+
+function updateTotals() {
+  let rows = document.querySelectorAll('table tr td:last-child');
+  let sum = 0;
+  for (let i = 0; i < rows.length - 1; i++) {
+    sum += Number(rows[i].textContent);
+  }
+  document.getElementById('sum').textContent = sum;
 }
 
 // UI Constructor
@@ -19,33 +30,40 @@ UI.prototype.addExpenseToList = function(expense) {
   row.innerHTML = `
     
     <td>${expense.type}</td>
+
     <td>${expense.amount}</td>
-    <td><a href="#" class="delete"><i class="far fa-trash-alt"></i><a></td>
-    
+
     `;
 
   list.appendChild(row);
 };
 
+// let rows = document.querySelectorAll('table tr td:last-child');
+// let sum = 0;
+
+// for (let i = 0; i < rows.length - 1; i++) {
+//   sum += Number(rows[i].textContent);
+// }
+
+// document.getElementById('sum').textContent = sum;
+
+// console.log(sum);
+
 // Show Alert
 UI.prototype.showAlert = function(message, className) {
-  // Create div
   const div = document.createElement('div');
+
+  document.querySelector('.messages').appendChild(div);
+
+  div.appendChild(document.createTextNode(message));
+
   // Add classes
   div.className = `alert ${className}`;
-  // Add text
-  div.appendChild(document.createTextNode(message));
-  // Get parent
-  const container = document.querySelector('.col-a');
-  // Get form
-  const form = document.querySelector('#expense-form');
-  // Insert alert
-  container.insertBefore(div, form);
 
   // Timeout after 3 sec
   setTimeout(function() {
     document.querySelector('.alert').remove();
-  }, 1000);
+  }, 2500);
 };
 
 // Clear Fields
@@ -70,34 +88,45 @@ UI.prototype.deleteExpense = function(target) {
 
 // Event Listener for add expense
 document.getElementById('expense-form').addEventListener('submit', function(e) {
-  // Get form values
+  // Get form values, don't need to repeat the const.
   const type = document.getElementById('type').value,
     amount = document.getElementById('amount').value;
 
-  // Instantiate expense
+  // Instantiate expense this is from the expense object in line 1
   const expense = new Expense(type, amount);
+
+  // console.log(expense);
 
   // Instantiate UI
   const ui = new UI();
 
   // Validate
   console.log('The type is: ' + type);
+
   if (amount === '' || type === '') {
+    document.querySelector('.messages').style.backgroundColor = 'salmon';
     // Error alert
-    ui.showAlert('Please fill in all fields', 'error');
+    ui.showAlert(' Please fill in all fields', 'error');
   } else {
-    // Add book to list
+    // Add expense to list
     ui.addExpenseToList(expense);
 
     // Show success
-    ui.showAlert('Expense Added!', 'success');
+    document.querySelector('.messages').style.backgroundColor = '#c5e2d9';
+    ui.showAlert(' Expense Added', 'success');
 
     // Clear fields
     ui.clearFields();
+
+    // Show Totals
+
+    updateTotals();
   }
 
   e.preventDefault();
 });
+
+// Output Total
 
 // Event Listener for delete
 document.getElementById('expense-list').addEventListener('click', function(e) {
@@ -108,7 +137,9 @@ document.getElementById('expense-list').addEventListener('click', function(e) {
   ui.deleteExpense(e.target);
 
   // Show message
-  ui.showAlert('Expense Removed!', 'success');
+  ui.showAlert(' Expense Removed', 'success');
+
+  updateTotals();
 
   e.preventDefault();
 });
