@@ -1,0 +1,16 @@
+[{
+    "type": "Groceries"
+   
+  },
+  {
+    "type": "Home"
+   
+  },
+  {
+    "type": "Children"
+  
+  },
+  {
+    "type": "Car"
+  }
+]

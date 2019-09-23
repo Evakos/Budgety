@@ -7,12 +7,11 @@ function Expense(type, amount) {
 
 // UI Constructor
 
-function UI() { }
+function UI() {}
 
 // Add Expense To List:
 
-UI.prototype.addExpenseToList = function (expense) {
-
+UI.prototype.addExpenseToList = function(expense) {
   const list = document.getElementById('expense-list');
 
   const row = document.createElement('tr');
@@ -27,7 +26,6 @@ UI.prototype.addExpenseToList = function (expense) {
 
   list.appendChild(row);
 };
-
 
 // Show Alert
 UI.prototype.showAlert = function(message, className) {
@@ -45,40 +43,37 @@ UI.prototype.showAlert = function(message, className) {
   container.insertBefore(div, form);
 
   // Timeout after 3 sec
-  setTimeout(function(){
+  setTimeout(function() {
     document.querySelector('.alert').remove();
   }, 1000);
-}
+};
 
 // Clear Fields
 
 UI.prototype.clearFields = function() {
   document.getElementById('type').value = '';
   document.getElementById('amount').value = '';
-}
+};
 
 // Delete Entry
 
-UI.prototype.deleteExpense = function (target) {
-
+UI.prototype.deleteExpense = function(target) {
   let current = target;
-  while(current.tagName != 'TR') {
+  while (current.tagName != 'TR') {
     current = current.parentElement;
   }
 
-  console.log (current);
+  console.log(current);
 
   current.remove();
-    
-}
-
+};
 
 // Event Listener for add expense
-document.getElementById('expense-form').addEventListener('submit', function(e){
+document.getElementById('expense-form').addEventListener('submit', function(e) {
   // Get form values
   const type = document.getElementById('type').value,
-        amount = document.getElementById('amount').value
-        
+    amount = document.getElementById('amount').value;
+
   // Instantiate expense
   const expense = new Expense(type, amount);
 
@@ -86,8 +81,8 @@ document.getElementById('expense-form').addEventListener('submit', function(e){
   const ui = new UI();
 
   // Validate
-  console.log("The type is: " + type);
-  if(amount === '' || type === '' ) {
+  console.log('The type is: ' + type);
+  if (amount === '' || type === '') {
     // Error alert
     ui.showAlert('Please fill in all fields', 'error');
   } else {
@@ -96,7 +91,7 @@ document.getElementById('expense-form').addEventListener('submit', function(e){
 
     // Show success
     ui.showAlert('Expense Added!', 'success');
-  
+
     // Clear fields
     ui.clearFields();
   }
@@ -104,10 +99,8 @@ document.getElementById('expense-form').addEventListener('submit', function(e){
   e.preventDefault();
 });
 
-
 // Event Listener for delete
-document.getElementById('expense-list').addEventListener('click', function(e){
-
+document.getElementById('expense-list').addEventListener('click', function(e) {
   // Instantiate UI
   const ui = new UI();
 
@@ -119,9 +112,6 @@ document.getElementById('expense-list').addEventListener('click', function(e){
 
   e.preventDefault();
 });
-
-
-
 
 // Populate Drop Down
 
@@ -138,27 +128,26 @@ dropdown.selectedIndex = 0;
 const url = 'json/json';
 
 fetch(url)
-  .then(
-    function (response) {
-      if (response.status !== 200) {
-        console.warn('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
-
-      // Examine the text in the response  
-      response.json().then(function (data) {
-        let option;
-
-        for (let i = 0; i < data.length; i++) {
-          option = document.createElement('option');
-          option.text = data[i].type;
-          option.value = data[i].type;
-          dropdown.add(option);
-        }
-      });
+  .then(function(response) {
+    if (response.status !== 200) {
+      console.warn(
+        'Looks like there was a problem. Status Code: ' + response.status
+      );
+      return;
     }
-  )
-  .catch(function (err) {
+
+    // Examine the text in the response
+    response.json().then(function(data) {
+      let option;
+
+      for (let i = 0; i < data.length; i++) {
+        option = document.createElement('option');
+        option.text = data[i].type;
+        option.value = data[i].type;
+        dropdown.add(option);
+      }
+    });
+  })
+  .catch(function(err) {
     console.error('Fetch Error -', err);
   });
