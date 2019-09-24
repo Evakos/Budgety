@@ -318,3 +318,15 @@ tr:nth-child(even) {
 tr:hover {
   background-color: salmon;
 }
+
+tfoot tr {
+  background-color: #c5e2d9;
+}
+
+tfoot tr td {
+  color: white;
+}
+
+tfoot tr:hover {
+  background-color: transparent;
+}
