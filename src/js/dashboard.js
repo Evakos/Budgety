@@ -1,5 +1,10 @@
 import Chart from 'chart.js';
 
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
+
 
 let idcounter = 0;
 

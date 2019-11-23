@@ -6,10 +6,7 @@ require('./src/js/dashboard.js');
 
 //require('./js/db.js');
 require('./src/sass/main.scss');
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
+
 //import '../sass/main.scss';
 
 // Log message to console
