@@ -1,13 +1,8 @@
 {
   "editor.formatOnSave": true,
-  "prettier.jsxSingleQuote": true,
-  "prettier.requireConfig": false,
-  "prettier.disableLanguages": ["html"],
-  "prettier.singleQuote": true,
   "scss.lint.float": "warning",
   "workbench.colorTheme": "Material Theme Darker High Contrast",
   "workbench.iconTheme": "material-icon-theme",
-  "prettier.jsxBracketSameLine": true,
   "html.format.indentInnerHtml": true,
   "html.format.preserveNewLines": false
 }
