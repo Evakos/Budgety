@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "b420b277121bbbf17662";
+/******/ 	var hotCurrentHash = "2208153650b3929ae90e";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -795,6 +795,45 @@
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./index.js":
+/*!******************!*\
+  !*** ./index.js ***!
+  \******************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _src_js_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/js/logger */ "./src/js/logger.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/fontawesome */ "./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/solid */ "./node_modules/@fortawesome/fontawesome-free/js/solid.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/regular */ "./node_modules/@fortawesome/fontawesome-free/js/regular.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/brands */ "./node_modules/@fortawesome/fontawesome-free/js/brands.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__);
+ //require('../server/index.js.js');
+
+__webpack_require__(/*! ./src/js/dashboard.js */ "./src/js/dashboard.js"); //require('./js/db.js');
+
+
+__webpack_require__(/*! ./src/sass/main.scss */ "./src/sass/main.scss");
+
+
+
+
+ //import '../sass/main.scss';
+// Log message to console
+
+Object(_src_js_logger__WEBPACK_IMPORTED_MODULE_0__["default"])('This is Budgety!'); // Needed for Hot Module Replacement
+
+if (typeof module.hot !== 'undefined') {
+  module.hot.accept(); // eslint-disable-line no-undef  
+}
+
+/***/ }),
 
 /***/ "./node_modules/@fortawesome/fontawesome-free/js/brands.js":
 /*!*****************************************************************!*\
@@ -41720,45 +41759,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/logger */ "./src/js/logger.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/fontawesome */ "./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/solid */ "./node_modules/@fortawesome/fontawesome-free/js/solid.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/regular */ "./node_modules/@fortawesome/fontawesome-free/js/regular.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/brands */ "./node_modules/@fortawesome/fontawesome-free/js/brands.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__);
- //require('../server/index.js.js');
-
-__webpack_require__(/*! ./js/dashboard.js */ "./src/js/dashboard.js"); //require('./js/db.js');
-
-
-__webpack_require__(/*! ./sass/main.scss */ "./src/sass/main.scss");
-
-
-
-
- //import '../sass/main.scss';
-// Log message to console
-
-Object(_js_logger__WEBPACK_IMPORTED_MODULE_0__["default"])('This is Budgety!'); // Needed for Hot Module Replacement
-
-if (typeof module.hot !== 'undefined') {
-  module.hot.accept(); // eslint-disable-line no-undef  
-}
-
-/***/ }),
-
 /***/ "./src/js/dashboard.js":
 /*!*****************************!*\
   !*** ./src/js/dashboard.js ***!
@@ -42048,14 +42048,14 @@ if(true) {
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************!*\
-  !*** multi webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000 ./src/index.js ***!
-  \********************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** multi webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000 ./index.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000 */"./node_modules/webpack-hot-middleware/client.js?path=/__webpack_hmr&timeout=20000");
-module.exports = __webpack_require__(/*! ./src/index.js */"./src/index.js");
+module.exports = __webpack_require__(/*! ./index.js */"./index.js");
 
 
 /***/ })
