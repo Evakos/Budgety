@@ -1,8 +1,8 @@
-import logMessage from './js/logger'
+import logMessage from './src/js/logger'
 
 
 //require('../server/index.js.js');
-require('./js/dashboard.js');
+require('./src/js/dashboard.js');
 
 //require('./js/db.js');
 require('./sass/main.scss');
