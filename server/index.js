@@ -41,17 +41,17 @@ let notes = [
   }
 ]
 
-app.use(express.static('build'))
+app.use(express.static('dist'))
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello World!</h1>')
+  res.send('<h1>Hi Sexy</h1>')
 })
 
 app.post('/api/notes', (request, response, next) => {
   const body = request.body
 
   const note = new Note({
-    content: body.content, 
+    content: body.content,
     important: body.important || false,
     date: new Date(),
   })
@@ -63,7 +63,7 @@ app.post('/api/notes', (request, response, next) => {
       response.json(savedAndFormattedNote)
     })
     .catch(error => next(error))
-}) 
+})
 
 app.get('/api/notes', (request, response) => {
   Note.find({}).then(notes => {
@@ -125,7 +125,7 @@ const errorHandler = (error, request, response, next) => {
 
 app.use(errorHandler)
 
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
