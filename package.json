@@ -2,9 +2,9 @@
   "name": "budgety",
   "version": "1.0.0",
   "description": "My webpack project",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "buildDev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
+    "bD": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
     "buildProd": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
     "start": "node ./dist/server.js"
   },
@@ -83,6 +83,7 @@
     "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "cors": "^2.8.5",

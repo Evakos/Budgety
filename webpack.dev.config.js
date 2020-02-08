@@ -11,6 +11,7 @@ module.exports = {
         publicPath: '/',
         filename: '[name].js'
     },
+    watch: true,
     mode: 'development',
     target: 'web',
     devtool: '#source-map',
@@ -18,9 +19,6 @@ module.exports = {
         fs: "empty"
     },
     module: {
-
-
-
 
         rules: [
             {

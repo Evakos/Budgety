@@ -1,9 +1,44 @@
 import Chart from 'chart.js';
 
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
+//Make a request for the expense from the API.
+
+const url = 'http://localhost:3000/expense'
+
+fetch(url)
+
+    .then((resp) => resp.json())
+
+    .then(function (data) {
+
+        const expenses = data;
+
+        console.log(data.title)
+
+        let dropdown = document.getElementById('type');
+
+        let defaultOption = document.createElement('option');
+
+        defaultOption.text = 'Enter Expense Type';
+
+        defaultOption.value = '';
+
+        dropdown.add(defaultOption);
+
+        expenses.forEach(function (element) {
+
+            dropdown.options[dropdown.options.length] = new Option(element.title);
+
+        });
+    })
+
+    .catch(function (error) {
+
+        console.log(error);
+    })
+    .finally(function () {
+
+        console.log('Got the Expenses Object');
+    });
 
 
 let idcounter = 0;
@@ -82,8 +117,7 @@ let expenseChart = new Chart(ctx, {
         responsive: false,
         maintainAspectRatio: false,
         aspectRatio: 1,
-        cutoutPercentage: 50,
-        circumference: 1.6 * Math.PI,
+
         animation: {
             animateRotate: true,
             render: false,
@@ -292,6 +326,8 @@ document.getElementById('expense-list').addEventListener('click', function (e) {
 
     e.preventDefault();
 });
+
+
 
 
 //Populate Drop Down

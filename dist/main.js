@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "7413782f6970352529ff";
+/******/ 	var hotCurrentHash = "1bdfac0848969afe1153";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -800,19 +800,32 @@
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-//import logMessage from './src/js/logger'
-//require('../server/index.js.js');
-__webpack_require__(/*! ./src/js/dashboard.js */ "./src/js/dashboard.js"); //require('./js/db.js');
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _src_js_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/js/logger */ "./src/js/logger.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/fontawesome */ "./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/solid */ "./node_modules/@fortawesome/fontawesome-free/js/solid.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/regular */ "./node_modules/@fortawesome/fontawesome-free/js/regular.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/brands */ "./node_modules/@fortawesome/fontawesome-free/js/brands.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__);
+__webpack_require__(/*! ./src/js/dashboard.js */ "./src/js/dashboard.js");
+
+__webpack_require__(/*! ./src/sass/main.scss */ "./src/sass/main.scss");
 
 
-__webpack_require__(/*! ./src/sass/main.scss */ "./src/sass/main.scss"); //import '../sass/main.scss';
+
+
+
+ //import '../sass/main.scss';
 // Log message to console
 
-
-logMessage('This is Budgety!'); // Needed for Hot Module Replacement
+Object(_src_js_logger__WEBPACK_IMPORTED_MODULE_0__["default"])('This is Budgety!'); // Needed for Hot Module Replacement
 
 if (typeof module.hot !== 'undefined') {
   module.hot.accept(); // eslint-disable-line no-undef  
@@ -41755,21 +41768,29 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/fontawesome */ "./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/solid */ "./node_modules/@fortawesome/fontawesome-free/js/solid.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/regular */ "./node_modules/@fortawesome/fontawesome-free/js/regular.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/brands */ "./node_modules/@fortawesome/fontawesome-free/js/brands.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_brands__WEBPACK_IMPORTED_MODULE_4__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+ //Make a request for the expense from the API.
 
-
-
-
-
+var url = 'http://localhost:3000/expense';
+fetch(url).then(function (resp) {
+  return resp.json();
+}).then(function (data) {
+  var expenses = data;
+  console.log(data.title);
+  var dropdown = document.getElementById('type');
+  var defaultOption = document.createElement('option');
+  defaultOption.text = 'Enter Expense Type';
+  defaultOption.value = '';
+  dropdown.add(defaultOption);
+  expenses.forEach(function (element) {
+    dropdown.options[dropdown.options.length] = new Option(element.title);
+  });
+})["catch"](function (error) {
+  console.log(error);
+})["finally"](function () {
+  console.log('Got the Expenses Object');
+});
 var idcounter = 0; // Expense Constructor to be reusable.
 
 function Expense(type, amount) {
@@ -41825,9 +41846,7 @@ var expenseChart = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctx, {
     },
     responsive: false,
     maintainAspectRatio: false,
-    aspectRatio: 1,
-    cutoutPercentage: 50,
-    circumference: 1.6 * Math.PI
+    aspectRatio: 1
   }, "animation", {
     animateRotate: true,
     render: false
@@ -41969,6 +41988,23 @@ document.getElementById('expense-list').addEventListener('click', function (e) {
 //     option.name = expenses[i].type;
 //     dropdown.add(option);
 // }
+
+/***/ }),
+
+/***/ "./src/js/logger.js":
+/*!**************************!*\
+  !*** ./src/js/logger.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var logMessage = function logMessage(msg) {
+  return console.log(msg);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (logMessage);
 
 /***/ }),
 
