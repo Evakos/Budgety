@@ -4,6 +4,8 @@ import Chart from 'chart.js';
 
 const url = 'http://localhost:3000/expense'
 
+//let tags = [];
+
 fetch(url)
 
     .then((resp) => resp.json())
@@ -12,21 +14,24 @@ fetch(url)
 
         const expenses = data;
 
-        console.log(data.title)
-
-        let dropdown = document.getElementById('type');
-
-        let defaultOption = document.createElement('option');
-
-        defaultOption.text = 'Enter Expense Type';
-
-        defaultOption.value = '';
-
-        dropdown.add(defaultOption);
-
         expenses.forEach(function (element) {
 
-            dropdown.options[dropdown.options.length] = new Option(element.title);
+            let d = document.querySelector('.expense-tags');
+
+            let s = document.createElement('span');
+
+            s.setAttribute('class', 'tag');
+
+            d.appendChild(s);
+
+            let f = document.createTextNode(element.title);
+
+            s.appendChild(f);
+
+            // tags.push({
+            //     tagTitle: element.title,
+            //     enabled: false
+            // })
 
         });
     })
@@ -39,6 +44,39 @@ fetch(url)
 
         console.log('Got the Expenses Object');
     });
+
+
+
+//Greeting
+
+const getTime = document.querySelector('.greeting');
+
+const hour = new Date().getHours();
+
+getTime.innerHTML = "Good " + (hour < 12 && "Morning" || hour < 18 && "Afternoon" || "Evening")
+
+
+
+//Tags
+
+
+const getTags = document.querySelector('.expense-tags');
+
+getTags.addEventListener('click', toggleClass, false);
+
+function toggleClass(e) {
+
+    let tagElements = document.querySelectorAll('.tag');
+
+    for (let tagEl of tagElements) {
+        tagEl.classList.remove('enabled');
+    }
+
+    e.target.classList.add('enabled');
+
+    e.stopPropagation();
+}
+
 
 
 let idcounter = 0;
@@ -96,22 +134,22 @@ function add(accumulator, a) {
 const ctx = document.getElementById('chart');
 
 let expenseChart = new Chart(ctx, {
-
-
     type: 'doughnut',
     data: {
         datasets: [
             {
-                backgroundColor: ['rgba(0, 0, 0, .05)', 'rgba(0, 0, 0, .05)'],
+                label: 'My First dataset',
+                fillColor: "rgba(220,220,220,0.5)",
+                backgroundColor: 'rgb(254, 254, 254)',
+                borderColor: 'rgba(255, 255, 255, .5)',
+                borderWidth: '0',
                 data: [100, 100]
             }
         ],
-
-        borderColor: ['rgba(233, 255, 255, 1)']
     },
     options: {
         animation: {
-            duration: 1000,
+            duration: 2000,
             easing: 'linear'
         },
         responsive: false,
@@ -119,7 +157,7 @@ let expenseChart = new Chart(ctx, {
         aspectRatio: 1,
 
         animation: {
-            animateRotate: true,
+            animateRotate: false,
             render: false,
         },
     }
@@ -174,7 +212,7 @@ UI.prototype.showAlert = function (message, className) {
 
 UI.prototype.clearFields = function () {
 
-    document.getElementById('type').value = '';
+    document.querySelector('.tag.enabled').value = '';
 
     document.getElementById('amount').value = '';
 };
@@ -233,7 +271,7 @@ document.querySelector('.button').addEventListener('click', function (e) {
     //console.log('clikced');
 
     // Get form values, don't need to repeat the const.
-    const typeValue = document.getElementById('type').value, amountValue = document.getElementById('amount').value;
+    const typeValue = document.querySelector('.tag.enabled').innerText, amountValue = document.getElementById('amount').value;
 
     // Instantiate expense this is from the expense object in line 1
     // by using the new keyword, the Expense (constructor) function will be called like every other function, but all the variables declaredas this.variablename will be attached
@@ -260,7 +298,7 @@ document.querySelector('.button').addEventListener('click', function (e) {
 
     const sum = storeAmounts.reduce(add, 0);
 
-    document.getElementById('sum').textContent = sum;
+    document.getElementById('expense-totals').textContent = sum;
 
     // Update Chart
 

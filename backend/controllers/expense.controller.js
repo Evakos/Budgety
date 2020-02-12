@@ -5,13 +5,13 @@ exports.create = (req, res) => {
     // Validate request
     if (!req.body.description) {
         return res.status(400).send({
-            message: "Expense content can not be SEX"
+            message: "Expense description can not be empty"
         });
     }
 
     // Create an expense
     const expense = new Expense({
-        title: req.body.title || "Untitled Note",
+        title: req.body.title || "Untitled Expense",
         description: req.body.description
     });
 
@@ -21,7 +21,7 @@ exports.create = (req, res) => {
             res.send(data);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while creating the Note."
+                message: err.message || "Some error occurred while creating the expense."
             });
         });
 };
@@ -35,7 +35,7 @@ exports.findAll = (req, res) => {
             res.send(expenses);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving notes."
+                message: err.message || "Some error occurred while retrieving the expenses."
             });
         });
 };

@@ -1,4 +1,5 @@
 require('./src/js/dashboard.js');
+//require('./src/js/chart.js');
 require('./src/sass/main.scss');
 
 import logMessage from './src/js/logger'
