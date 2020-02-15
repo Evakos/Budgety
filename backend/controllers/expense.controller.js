@@ -21,7 +21,7 @@ exports.create = (req, res) => {
             res.send(data);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while creating the expense."
+                message: err.message || "An error occured while trying to save the expense"
             });
         });
 };
@@ -41,12 +41,12 @@ exports.findAll = (req, res) => {
 };
 
 
-// Find a single note with a noteId
+// Find a single expense
 exports.findOne = (req, res) => {
 
 };
 
-// Update a note identified by the noteId in the request
+// Update an expense identified by the noteId in the request
 exports.update = (req, res) => {
 
 };

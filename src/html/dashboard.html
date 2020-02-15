@@ -1,0 +1,103 @@
+<!doctype html>
+<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="en"><![endif]-->
+<!--[if !IE]><html lang="en"><![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Budgety - A Nice Personal Finance App</title>
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href=""> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul>
+                <li class='home'></li>
+                <li class='sliders'></li>
+                <li class='buoy'></li>
+                <li class='power'></li>
+            </ul>
+        </div>
+        <div class="header-wrapper">
+            <div class="header">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </li>
+                    <li><a href="#news"> <i class="far fa-user"></i> Create Account</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class='container'>
+            <div class="grid-wrapper">
+                <div class="box a">
+                    <h2><span class="greeting"></span><span class="user-name"> Chris.</span> You have set a budget of:
+                        <span class="weekly-budget">$1600</span> for the week.</h2>
+                </div>
+                <div class="box b">
+                    <div class='col-header'>
+                        <h2>Select Expense</h2>
+                    </div>
+                    <form id="expense-form">
+                        <div class='expense-tags' style='margin-bottom: 3rem'>
+                        </div>
+                        <!-- <div class="select-box">
+                    <select id="type" class="select">
+                    </select>
+                </div> -->
+                        <!-- <label for="amount">Amount:</label> -->
+                        <div class="input-amount">
+                            <input type="text" placeholder="Enter Amount" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Enter Amount'" id="amount">
+                            <a class="button" type="submit"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            <!-- <input type="submit" value="Submit" class="button"> -->
+                        </div>
+                    </form>
+                </div>
+                <div class="box c">
+                    <div class='col-header'>
+                        <h2>Expense Details</h2>
+                    </div>
+                    <table>
+                        <!-- <thead>
+                    <tr>
+                        <th>Type:</th>
+                        <th>Expense:</th>
+                    </tr>
+                </thead> -->
+                        <tbody id="expense-list"></tbody>
+                        <!-- <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td id="sum"></td>
+                    </tr>
+                </tfoot> -->
+                    </table>
+                </div>
+                <div class="box d">
+                    <div class='col-header'>
+                        <h2>Total</h2>
+                    </div>
+                    <div id='expense-totals'></div>
+                </div>
+                <div class="box e">
+                    <div class="chart-container">
+                        <canvas id="chart" width="200" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>

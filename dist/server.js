@@ -105,7 +105,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var path
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var path = __webpack_require__(/*! path */ \"path\");\n\nvar webpack = __webpack_require__(/*! webpack */ \"webpack\");\n\nvar HtmlWebPackPlugin = __webpack_require__(/*! html-webpack-plugin */ \"html-webpack-plugin\");\n\nmodule.exports = {\n  entry: {\n    main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './index.js']\n  },\n  output: {\n    path: path.join(__dirname, 'dist'),\n    publicPath: '/',\n    filename: '[name].js'\n  },\n  watch: true,\n  mode: 'development',\n  target: 'web',\n  devtool: '#source-map',\n  node: {\n    fs: \"empty\"\n  },\n  module: {\n    rules: [{\n      enforce: 'pre',\n      test: /\\.js$/,\n      exclude: /node_modules/,\n      loader: 'eslint-loader',\n      options: {\n        emitWarning: true,\n        failOnError: false,\n        failOnWarning: false\n      }\n    }, {\n      test: /\\.js$/,\n      exclude: /node_modules/,\n      loader: 'babel-loader'\n    }, {\n      // Loads the javacript into html template provided.\n      // Entry point is set below in HtmlWebPackPlugin in Plugins\n      test: /\\.html$/,\n      use: [{\n        loader: 'html-loader' //options: { minimize: true }\n\n      }]\n    }, {\n      test: /\\.(png|svg|jpg|gif)$/,\n      use: ['file-loader']\n    }, {\n      test: /\\.s[ac]ss$/i,\n      use: ['style-loader', {\n        loader: 'css-loader' // options: {\n        //     sourceMap: true\n        // }\n\n      }, {\n        loader: 'sass-loader' // options: {\n        //     sourceMap: true\n        // }\n\n      }]\n    }]\n  },\n  plugins: [new HtmlWebPackPlugin({\n    template: './src/html/index.html',\n    filename: './index.html',\n    excludeChunks: ['server']\n  }), new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin()]\n};\n\n//# sourceURL=webpack:///./webpack.dev.config.js?");
+eval("var path = __webpack_require__(/*! path */ \"path\");\n\nvar webpack = __webpack_require__(/*! webpack */ \"webpack\");\n\nvar HtmlWebPackPlugin = __webpack_require__(/*! html-webpack-plugin */ \"html-webpack-plugin\");\n\nvar ExtractTextPlugin = __webpack_require__(/*! extract-text-webpack-plugin */ \"extract-text-webpack-plugin\");\n\nmodule.exports = {\n  entry: {\n    main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']\n  },\n  output: {\n    path: path.join(__dirname, 'dist'),\n    //path: path.resolve(__dirname, 'dist'),\n    publicPath: '/',\n    filename: '[name].js'\n  },\n  watch: true,\n  mode: 'development',\n  target: 'web',\n  devtool: '#source-map',\n  node: {\n    fs: \"empty\"\n  },\n  module: {\n    rules: [{\n      enforce: 'pre',\n      test: /\\.js$/,\n      exclude: /node_modules/,\n      loader: 'eslint-loader',\n      options: {\n        emitWarning: true,\n        failOnError: false,\n        failOnWarning: false\n      }\n    }, {\n      test: /\\.js$/,\n      exclude: /node_modules/,\n      loader: 'babel-loader'\n    }, {\n      // Loads the javacript into html template provided.\n      // Entry point is set below in HtmlWebPackPlugin in Plugins\n      test: /\\.html$/,\n      use: [{\n        loader: 'html-loader' //options: { minimize: true }\n\n      }]\n    }, {\n      test: /\\.(png|svg|jpg|gif)$/,\n      use: ['file-loader']\n    }, {\n      test: /\\.scss$/,\n      use: ExtractTextPlugin.extract({\n        use: ['css-loader', 'sass-loader']\n      })\n    }]\n  },\n  plugins: [new HtmlWebPackPlugin({\n    template: \"./src/html/index.html\",\n    filename: \"index.html\"\n  }), new HtmlWebPackPlugin({\n    template: \"./src/html/dashboard.html\",\n    filename: \"dashboard.html\"\n  }), new HtmlWebPackPlugin({\n    template: \"./src/html/login.html\",\n    filename: \"login.html\"\n  }), new ExtractTextPlugin(\"styles.css\"), new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin(), new webpack.LoaderOptionsPlugin({\n    options: {}\n  })]\n};\n\n//# sourceURL=webpack:///./webpack.dev.config.js?");
 
 /***/ }),
 
@@ -117,6 +117,17 @@ eval("var path = __webpack_require__(/*! path */ \"path\");\n\nvar webpack = __w
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///external_%22express%22?");
+
+/***/ }),
+
+/***/ "extract-text-webpack-plugin":
+/*!**********************************************!*\
+  !*** external "extract-text-webpack-plugin" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"extract-text-webpack-plugin\");\n\n//# sourceURL=webpack:///external_%22extract-text-webpack-plugin%22?");
 
 /***/ }),
 

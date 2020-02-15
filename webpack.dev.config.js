@@ -1,15 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './index.js']
+        main: ['webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.js']
     },
     output: {
         path: path.join(__dirname, 'dist'),
+        //path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
-        filename: '[name].js'
+        filename: '[name].js',
+
     },
     watch: true,
     mode: 'development',
@@ -54,33 +57,37 @@ module.exports = {
                 use: ['file-loader']
             },
             {
-                test: /\.s[ac]ss$/i,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        // options: {
-                        //     sourceMap: true
-                        // }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        // options: {
-                        //     sourceMap: true
-                        // }
-                    }
-                ]
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        'css-loader',
+                        'sass-loader'
+                    ]
+                })
             }
         ]
     },
 
 
     plugins: [
+
         new HtmlWebPackPlugin({
-            template: './src/html/index.html',
-            filename: './index.html',
-            excludeChunks: ['server']
+            template: "./src/html/index.html",
+            filename: "index.html"
         }),
+        new HtmlWebPackPlugin({
+            template: "./src/html/dashboard.html",
+            filename: "dashboard.html",
+
+        }),
+        new HtmlWebPackPlugin({
+            template: "./src/html/login.html",
+            filename: "login.html",
+
+        }),
+
+        new ExtractTextPlugin("styles.css"),
+
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.LoaderOptionsPlugin({ options: {} })
