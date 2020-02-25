@@ -1,1 +1,1 @@
-# A Simple Budgeting App
+# Budgety

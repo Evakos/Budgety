@@ -1,4 +1,4 @@
-const users = require('../users/users.routes');
+const users = require('./users.routes');
 
 module.exports = (router) => {
     users(router);

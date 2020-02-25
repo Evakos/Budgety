@@ -6,61 +6,53 @@
 <!--[if !IE]><html lang="en"><![endif]-->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Budgety - A Nice Personal Finance App</title>
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href=""> -->
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Budgety - A Nice Personal Finance App</title>
+
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="header-wrapper">
-            <div class="header">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">About</a>
-                        <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                        </div>
-                    </li>
-                    <li><a href="login.html"> <i class="far fa-user"></i> Create Account</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class='container'>
-            <div class="signin-form">
-                <h3>Register</h3>
-                <div class="login-form">
-                    <form id="login" action="/" method="post" onsubmit="event.preventDefault(); submit();">
-                        <input type="text" name="email" placeholder="E-mail" required="">
-                        <input type="text" name="name" placeholder="Username" required="">
-                        <input type="password" name="password" placeholder="Password" id="password" required="">
-                        <!-- <input type="password" name="passwordConf" placeholder="Confirm Password" id="password_conf" required="">-->
-                        <input type="submit" class='button' value="Register Now">
-                    </form>
-                </div>
-                <p><a href="#"> By clicking register, I agree to your terms</a></p>
-            </div>
-        </div>
-        <!-- <script type="text/javascript">
-            var passWordField = document.getElementById('password')
-            var passWordConfirmField = document.getElementById('password_conf')
-            var form = document.getElementById('login')
+  <div class="wrapper">
+    <div class="header-wrapper">
+      <div class="header"></div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">About</a>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </li>
+        <li><a href="login.html"> <i class="far fa-user"></i> Create
+            Account</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class='container'>
 
-            function valForm() {
-                if (passWordField.value != passWordConfirmField.value) {
-                    alert("Passwords do not match. Please try again.");
-                } else {
-                    form.submit()
-                }
-            }
-        </script> -->
+
+    <div class="login">
+      <h3>Login</h3>
+      <form id="login-form">
+        <input type="text" name="email" placeholder="E-mail" required="">
+        <input type="text" name="name" placeholder="Username" required="">
+        <input type="password" name="password" placeholder="Password"
+          id="password" required="">
+        <button class='button'>Login</button>
+      </form>
+    </div>
+
+  </div>
+
+
+
 </body>
 
 </html>

@@ -1,20 +1,22 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
+
 const User = require('../models/users.model.js');
 
-const connUri = process.env.MONGO_LOCAL_CONN_URL;
+const connUri = process.env.ATLAS_CONN_URL;
 
 module.exports = {
 
     //Handle Add User
     add: (req, res) => {
-        mongoose.connect(connUri, { useNewUrlParser: true }, { useUnifiedTopology: true }, (err) => {
+        mongoose.connect(connUri, { useNewUrlParser: true }, (err) => {
             let result = {};
             let status = 201;
             if (!err) {
-                const { name, password } = req.body;
-                const user = new User({ name, password }); // document = instance of a model
+                const { name, email, password } = req.body;
+                const user = new User({ name, email, password }); // document = instance of a model
                 // TODO: We can hash the password here before we insert instead of in the model
                 user.save((err, user) => {
                     if (!err) {
@@ -40,13 +42,15 @@ module.exports = {
     //Handle Login
 
     login: (req, res) => {
-        const { name, password } = req.body;
+        const { email, name, password } = req.body;
+        console.log("Username: " + name);
+        console.log("Email: " + email);
 
         mongoose.connect(connUri, { useNewUrlParser: true }, (err) => {
             let result = {};
             let status = 200;
             if (!err) {
-                User.findOne({ name }, (err, user) => {
+                User.findOne({ email, name }, (err, user) => {
                     if (!err && user) {
                         // We could compare passwords in our model instead of below as well
                         bcrypt.compare(password, user.password).then(match => {
@@ -62,10 +66,11 @@ module.exports = {
                                 result.token = token;
                                 result.status = status;
                                 result.result = user;
+
                             } else {
                                 status = 401;
                                 result.status = status;
-                                result.error = `Authentication error`;
+                                result.error = `Authentication tyrtt`;
                             }
                             res.status(status).send(result);
                         }).catch(err => {
@@ -77,7 +82,7 @@ module.exports = {
                     } else {
                         status = 404;
                         result.status = status;
-                        result.error = err;
+                        result.error = "No matching user found";
                         res.status(status).send(result);
                     }
                 });
@@ -89,6 +94,16 @@ module.exports = {
             }
         });
     },
+
+    //Handle Logout
+
+
+    logout: (req, res) => {
+        res.redirect('/');
+    },
+
+
+
 
     //Get All Users
 

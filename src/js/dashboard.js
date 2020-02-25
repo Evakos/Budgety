@@ -2,11 +2,13 @@ import Chart from 'chart.js';
 
 //Make a request for the expense from the API.
 
-const url = 'http://localhost:3000/expense'
+// const url = 'https://localhost:8080'
 
 //let tags = [];
 
-fetch(url)
+
+
+fetch('/api/expense')
 
     .then((resp) => resp.json())
 
