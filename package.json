@@ -46,7 +46,7 @@
     "@babel/polyfill": "^7.10.4",
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@sendgrid/mail": "^6.5.5",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "cookie-parser": "^1.4.5",
