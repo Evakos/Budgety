@@ -1,36 +1,36 @@
 //Register
 
-const regForm = document.getElementById('reg-form');
+const regForm = document.getElementById("reg-form");
 
 regForm.addEventListener(
-  'submit',
-  e => {
+  "submit",
+  (e) => {
     e.preventDefault();
 
     // Collect the data from the input elements
-    let username = regForm.querySelector('[name=name]').value;
-    let email = regForm.querySelector('[name=email]').value;
-    let pwd = regForm.querySelector('[name=password]').value;
+    let username = regForm.querySelector("[name=name]").value;
+    let email = regForm.querySelector("[name=email]").value;
+    let pwd = regForm.querySelector("[name=password]").value;
 
     // Collect the message element
-    let messages = document.querySelector('.messages');
+    let messages = document.querySelector(".messages");
 
     // Get input container div
-    let getDiv = regForm.querySelectorAll('.inp');
+    let getDiv = regForm.querySelectorAll(".inp");
 
-    let input = regForm.querySelectorAll('input');
+    let input = regForm.querySelectorAll("input");
 
-    let postBod = 'name=' + username + '&email=' + email + '&password=' + pwd;
+    let postBod = "name=" + username + "&email=" + email + "&password=" + pwd;
 
-    let spinner = regForm.querySelector('.button');
+    let spinner = regForm.querySelector(".button");
 
     spinner.innerHTML = '<span class="loading"></span>';
 
     if (password.value != password2.value) {
-      getDiv.forEach(function(element) {
-        element.style.borderColor = 'salmon';
-        spinner.innerHTML = 'Register';
-        messages.innerHTML = 'Passwords Should match';
+      getDiv.forEach(function (element) {
+        element.style.borderColor = "salmon";
+        spinner.innerHTML = "Register";
+        messages.innerHTML = "Passwords Should match";
         // setTimeout(function() {
         //   messages.innerHTML = '';
         // }, 2000);
@@ -42,11 +42,11 @@ regForm.addEventListener(
 
     if (username.length == 0 || email.length == 0 || pwd.length == 0) {
       //console.log(input);
-      input.forEach(function(element) {
-        element.style.borderColor = 'salmon';
+      input.forEach(function (element) {
+        element.style.borderColor = "salmon";
         //element.style.color = 'white';
-        spinner.innerHTML = 'Register';
-        messages.innerHTML = 'Please complete the fields';
+        spinner.innerHTML = "Register";
+        messages.innerHTML = "Please complete the fields";
         //console.log(email + 'is an eror');
         // setTimeout(function() {
         //   messages.innerHTML = '';
@@ -56,23 +56,24 @@ regForm.addEventListener(
     }
 
     // Send a POST request with this data to the users api
-    fetch('/api/users', {
-      method: 'POST',
+    fetch("/api/users", {
+      method: "POST",
       body: postBod,
       headers: {
-        'Content-type': 'application/x-www-form-urlencoded'
-      }
+        "Content-type": "application/x-www-form-urlencoded",
+      },
     })
-      .then(res => {
-        console.log('Server request was successful ' + res);
+      .then((res) => {
+        console.log("Server request was successful " + res);
 
-        window.location.href = 'dashboard.html';
+        window.location.href = "dashboard.html";
       })
-      .catch(err => {
-        err.then(errorData => {
+      .catch((err) => {
+        err.then((errorData) => {
           //console.dir(errorData);
+          window.location.href = "login.html";
           console.log(
-            'There was en error on the server side: ' + errorData.error
+            "There was en error on the server side: " + errorData.error
           );
         });
       });
@@ -82,27 +83,13 @@ regForm.addEventListener(
   false
 );
 
-regForm.querySelector('[name=password]').addEventListener('input', function() {
-  let x = regForm.querySelector('[name=password]');
+regForm.querySelector("[name=password]").addEventListener("input", function () {
+  let x = regForm.querySelector("[name=password]");
 
-  let y = regForm.querySelector('.pass-reveal-first');
-
-  if (x.value.length == 0) {
-    let i = '';
-    y.innerHTML = i;
-  } else {
-    let i = '<i class="far fa-eye-slash"></i>';
-    y.innerHTML = i;
-  }
-});
-
-regForm.querySelector('[name=password2]').addEventListener('input', function() {
-  let x = regForm.querySelector('[name=password2]');
-
-  let y = regForm.querySelector('.pass-reveal-second');
+  let y = regForm.querySelector(".pass-reveal-first");
 
   if (x.value.length == 0) {
-    let i = '';
+    let i = "";
     y.innerHTML = i;
   } else {
     let i = '<i class="far fa-eye-slash"></i>';
@@ -111,36 +98,52 @@ regForm.querySelector('[name=password2]').addEventListener('input', function() {
 });
 
 regForm
-  .querySelector('.pass-reveal-first')
-  .addEventListener('click', function() {
-    let x = regForm.querySelector('[name=password]');
+  .querySelector("[name=password2]")
+  .addEventListener("input", function () {
+    let x = regForm.querySelector("[name=password2]");
 
-    let y = regForm.querySelector('.pass-reveal-first');
+    let y = regForm.querySelector(".pass-reveal-second");
 
-    if (x.type === 'password') {
-      x.type = 'text';
-      let i = '<i class="far fa-eye"></i>';
+    if (x.value.length == 0) {
+      let i = "";
       y.innerHTML = i;
     } else {
-      x.type = 'password';
       let i = '<i class="far fa-eye-slash"></i>';
       y.innerHTML = i;
     }
   });
 
 regForm
-  .querySelector('.pass-reveal-second')
-  .addEventListener('click', function() {
-    let x = regForm.querySelector('[name=password2]');
+  .querySelector(".pass-reveal-first")
+  .addEventListener("click", function () {
+    let x = regForm.querySelector("[name=password]");
 
-    let y = regForm.querySelector('.pass-reveal-second');
+    let y = regForm.querySelector(".pass-reveal-first");
 
-    if (x.type === 'password') {
-      x.type = 'text';
+    if (x.type === "password") {
+      x.type = "text";
       let i = '<i class="far fa-eye"></i>';
       y.innerHTML = i;
     } else {
-      x.type = 'password';
+      x.type = "password";
+      let i = '<i class="far fa-eye-slash"></i>';
+      y.innerHTML = i;
+    }
+  });
+
+regForm
+  .querySelector(".pass-reveal-second")
+  .addEventListener("click", function () {
+    let x = regForm.querySelector("[name=password2]");
+
+    let y = regForm.querySelector(".pass-reveal-second");
+
+    if (x.type === "password") {
+      x.type = "text";
+      let i = '<i class="far fa-eye"></i>';
+      y.innerHTML = i;
+    } else {
+      x.type = "password";
       let i = '<i class="far fa-eye-slash"></i>';
       y.innerHTML = i;
     }

@@ -7,52 +7,44 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Budgety - A Nice Personal Finance App</title>
-
 </head>
 
 <body>
   <div class="wrapper">
     <div class="header-wrapper">
-      <div class="header"></div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropbtn">About</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-        <li><a href="login.html"> <i class="far fa-user"></i> Create
-            Account</a></li>
-      </ul>
+      <div class="header">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">About</a>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </li>
+          <li><a href="login.html"> <i class="far fa-user"></i> Create Account</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      <div class="login">
+        <h3>Login</h3>
+        <form id="login-form">
+          <input type="text" name="name" placeholder="Username" required="">
+          <input type="text" name="email" placeholder="E-mail" required="">
+          <input type="password" name="password" placeholder="Password" id="password" required="">
+          <button class='button'>Login</button>
+          <div class='messages'></div>
+        </form>
+      </div>
     </div>
   </div>
-  <div class='container'>
-
-
-    <div class="login">
-      <h3>Login</h3>
-      <form id="login-form">
-        <input type="text" name="email" placeholder="E-mail" required="">
-        <input type="text" name="name" placeholder="Username" required="">
-        <input type="password" name="password" placeholder="Password"
-          id="password" required="">
-        <button class='button'>Login</button>
-      </form>
-    </div>
-
-  </div>
-
-
-
 </body>
 
 </html>
