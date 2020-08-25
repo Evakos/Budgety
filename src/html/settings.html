@@ -1,0 +1,75 @@
+<!doctype html>
+<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="en"><![endif]-->
+<!--[if !IE]><html lang="en"><![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Budgety - A Nice Personal Finance App</title>
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href=""> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul>
+                <li class='home'></li>
+                <li class='sliders'></li>
+                <li class='buoy'></li>
+                <li class='power'></li>
+            </ul>
+        </div>
+        <div class="header-wrapper">
+            <div class="header">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </li>
+                    <li><a href="api/logout"> <i class="far fa-user"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class='container'>
+            <div class="form-wrapper">
+                <fieldset class="fs-hide">
+                    <h2>Set your budget period:</h2>
+                    <input type="radio" id="weekly" name="period" value="weekly">
+                    <label for="weekly">Weekly</label><br>
+                    <input type="radio" id="monthly" name="period" value="monthly">
+                    <label for="weekly">Monthly</label><br>
+                    <input type="button" name="back" value="Back" class='back'>
+                    <input type="button" name="next" value="Next" class='next'>
+                    <div class="wz-bullet-cont"></div>
+                </fieldset>
+                <fieldset class="fs-hide">
+                    <h2>Set Your Budget </h2>
+                    <label for="fname">Amount:</label>
+                    <input type="text" id="amount" name="amount">
+                    <input type="button" name="back" value="Back" class='back'>
+                    <input type="button" name="next" value="Next" class='next'>
+                    <div class="wz-bullet-cont"></div>
+                </fieldset>
+                <fieldset class="fs-hide">
+                    <h2>The last form</h2>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="button" name="back" value="Back" class='back'>
+                    <input type="button" name="next" value="Next" class='next'>
+                    <input type="submit" name="submit" value="Submit Now!" onclick="">
+                    <div class="wz-bullet-cont"></div>
+                </fieldset>
+            </div>
+        </div>
+</body>

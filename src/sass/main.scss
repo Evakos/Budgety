@@ -739,3 +739,37 @@ tfoot tr:hover {
 // #chart-container {
 //   position: relative;
 // }
+
+
+//Settings Wizard
+
+.fs-hide {
+  display: none;
+}
+
+.fs-show {
+  display: block;
+}
+
+.wz-bullet-cont {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.wz-bullet-cont>div {
+  height: 15px;
+  width: 15px;
+  margin: 20px 10px;
+  border-radius: 100px;
+  z-index: 2;
+}
+
+.wz-bullet {
+  background-color: lightgrey;
+
+}
+
+.wz-bullet-active {
+  background-color: green !important;
+}

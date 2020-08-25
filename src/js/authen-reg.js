@@ -66,7 +66,7 @@ regForm.addEventListener(
       .then((res) => {
         console.log("Server request was successful " + res);
 
-        window.location.href = "dashboard.html";
+        window.location.href = "settings.html";
       })
       .catch((err) => {
         err.then((errorData) => {
