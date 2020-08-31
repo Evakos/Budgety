@@ -39,6 +39,10 @@ const routes2 = require("./routes/expenses/index.globalExpense.routes.js");
 
 app.use("/api", routes2(router));
 
+const routes3 = require("./routes/usersMeta/index.usersMeta.routes.js");
+
+app.use("/api", routes3(router));
+
 app.listen(`${stage.port}`, () => {
   console.log(`Server now listening at localhost:${stage.port}`);
 });

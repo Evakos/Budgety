@@ -42,33 +42,49 @@
             </div>
         </div>
         <div class='container'>
-            <div class="form-wrapper">
+            <div class="wz-form-wrapper">
                 <fieldset class="fs-hide">
-                    <h2>Set your budget period:</h2>
-                    <input type="radio" id="weekly" name="period" value="weekly">
-                    <label for="weekly">Weekly</label><br>
-                    <input type="radio" id="monthly" name="period" value="monthly">
-                    <label for="weekly">Monthly</label><br>
-                    <input type="button" name="back" value="Back" class='back'>
-                    <input type="button" name="next" value="Next" class='next'>
                     <div class="wz-bullet-cont"></div>
+                    <div class='wz-input-cont'>
+                        <h2>Set your budget period:</h2>
+                        <div class='wz-input-group'>
+                            <div class='wz-input'>
+                                <label for="weekly">Weekly</label>
+                                <input type="radio" id="weekly" name="period" value="weekly">
+                            </div>
+                            <div class='wz-input'>
+                                <label for="weekly">Monthly</label>
+                                <input type="radio" id="monthly" name="period" value="monthly">
+                            </div>
+                        </div>
+                        <div class='wz-button-group'>
+                            <input type="button" name="back" value="Back" class='back'>
+                            <input type="button" name="next" value="Next" class='next'>
+                        </div>
                 </fieldset>
                 <fieldset class="fs-hide">
+                    <div class="wz-bullet-cont"></div>
                     <h2>Set Your Budget </h2>
-                    <label for="fname">Amount:</label>
-                    <input type="text" id="amount" name="amount">
-                    <input type="button" name="back" value="Back" class='back'>
-                    <input type="button" name="next" value="Next" class='next'>
-                    <div class="wz-bullet-cont"></div>
+                    <div class='wz-input-group'>
+                        <label for="fname">Amount:</label>
+                        <input type="text" id="amount" name="amount">
+                    </div>
+                    <div class='wz-button-group'>
+                        <input type="button" name="back" value="Back" class='back'>
+                        <input type="button" name="next" value="Next" class='next'>
+                    </div>
                 </fieldset>
                 <fieldset class="fs-hide">
-                    <h2>The last form</h2>
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="button" name="back" value="Back" class='back'>
-                    <input type="button" name="next" value="Next" class='next'>
-                    <input type="submit" name="submit" value="Submit Now!" onclick="">
                     <div class="wz-bullet-cont"></div>
+                    <h2>The last form</h2>
+                    <div class='wz-input-group'>
+                        <input type="text" name="currency" placeholder="Currency">
+                    </div>
+                    <div class='wz-button-group'>
+                        <input type="button" name="back" value="Back" class='back'>
+                        <input type="button" name="next" value="Next" class='next'>
+                    </div>
+                    <input type="submit" name="submit" value="Submit Now!" id='submit'>
                 </fieldset>
             </div>
         </div>

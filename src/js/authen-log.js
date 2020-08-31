@@ -6,11 +6,11 @@ logForm.addEventListener(
     e.preventDefault();
 
     // Collect the data from the input elements
-    let username = logForm.querySelector("[name=name]").value;
+    let userName = logForm.querySelector("[name=name]").value;
     let email = logForm.querySelector("[name=email]").value;
     let pwd = logForm.querySelector("[name=password]").value;
 
-    let postBody = "name=" + username + "&email=" + email + "&password=" + pwd;
+    let postBody = "name=" + userName + "&email=" + email + "&password=" + pwd;
 
     let spinner = logForm.querySelector(".button");
 

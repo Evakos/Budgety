@@ -11,7 +11,12 @@ module.exports = {
   add: (req, res) => {
     mongoose.connect(
       connUri,
-      { useNewUrlParser: true, useUnifiedTopology: true },
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+      },
       (err) => {
         let result = {};
         let status = 201;

@@ -1,6 +1,4 @@
-// console.log("Reloaded");
-
-// // dom variables
+//Get all the Fieldsets
 const getFieldSet = document.getElementsByTagName("fieldset");
 
 // declaring the active fieldset & the total fieldset count
@@ -9,7 +7,7 @@ const fieldset = getFieldSet[fsInit];
 console.log("Number of fieldsets: " + fieldset);
 fieldset.className = "fs-show";
 
-console.log(getFieldSet.length);
+//console.log(getFieldSet.length);
 
 // creates and stores a number of bullets
 let createBulletDiv = "<div class='wz-bullet'></div>";
@@ -19,14 +17,14 @@ for (let i = 1; i < getFieldSetLength; ++i) {
   console.log(createBulletDiv);
 }
 
-// // Insert Bullets
+// Insert Bullets
 const bulletCont = document.querySelectorAll(".wz-bullet-cont");
 
-console.log("This is the cont div: " + bulletCont);
+//console.log("This is the cont div: " + bulletCont);
 
 for (let i = 0; i < bulletCont.length; ++i) {
   let bulletItem = bulletCont[i];
-  console.log(bulletItem);
+  //console.log(bulletItem);
   bulletItem.innerHTML = createBulletDiv;
 }
 
@@ -48,15 +46,15 @@ document.addEventListener(
     // Don't follow the link
     event.preventDefault();
     // Log the clicked element in the console
-    console.log(event.target);
-    console.log("Next Clicked");
+    //console.log(event.target);
+    //console.log("Next Clicked");
     var selection = getFieldSet[fsInit];
-    console.log("This is the: " + selection);
+    //console.log("This is the: " + selection);
     selection.className = "fs-hide";
 
     fsInit = fsInit + 1;
 
-    console.log(fsInit);
+    //console.log(fsInit);
 
     var selection = getFieldSet[fsInit];
     selection.className = "fs-show";
@@ -67,31 +65,6 @@ document.addEventListener(
   false
 );
 
-// const getNext = getFieldSet.querySelectorAll(".next");
-
-// console.log(getNext);
-
-// console.log(fsInit);
-
-// getNext.addEventListener("click", (event) => {
-//   var twat = document.querySelectorAll("fieldset")[fsInit];
-
-//   console.log("Next Clicked");
-//   var selection = getFieldSet[fsInit];
-//   console.log("This is the: " + selection);
-//   selection.className = "fs-hide";
-
-//   fsInit = fsInit + 1;
-
-//   console.log(fsInit);
-
-//   var selection = getFieldSet[fsInit];
-//   selection.className = "fs-show";
-
-//   var msf_bullets_a = fsInit * getFieldSetLength + fsInit;
-//   theBullets[msf_bullets_a].className += " wz-bullet-active";
-// });
-
 document.addEventListener(
   "click",
   function (event) {
@@ -100,8 +73,8 @@ document.addEventListener(
     // Don't follow the link
     event.preventDefault();
     // Log the clicked element in the console
-    console.log(event.target);
-    console.log("Next Clicked");
+    // console.log(event.target);
+    // console.log("Next Clicked");
     var selection = getFieldSet[fsInit];
     console.log("This is the: " + selection);
     selection.className = "fs-hide";
@@ -113,40 +86,85 @@ document.addEventListener(
     var selection = getFieldSet[fsInit];
     selection.className = "fs-show";
 
-    var msf_bullets_a = fsInit * getFieldSetLength + fsInit;
+    let msf_bullets_a = fsInit * getFieldSetLength + fsInit;
     theBullets[msf_bullets_a].className += " wz-bullet-active";
   },
   false
 );
 
-// const getPrev = document.querySelector(".back");
+//Handle for submission and DB update
+const getForm = document.getElementById("submit");
 
-// getPrev.addEventListener("click", (event) => {
-//   console.log("Back Clicked");
-//   var selection = getFieldSet[fsInit];
-//   selection.className = "fs-hide";
-//   fsInit = fsInit - 1;
-//   getFieldSet[fsInit].className = "fs-show";
-// });
+getForm.addEventListener(
+  "click",
+  function (e) {
+    e.preventDefault();
 
-// function wzNext() {
-//   console.log("Next");
-//   // goes to the next step
+    //This is getting all the fieldsets and storing them in a const.
+    const getFieldSet = document.getElementsByTagName("fieldset");
 
-//   // fsInit = fsInit + 1;
-//   // let selection = getFieldSet[fsInit];
+    for (fieldSet of getFieldSet) {
+      //console.log(item);
 
-//   // selection.className = "fs-show";
-//   // refreshes the bullet
-//   // var msf_bullets_a = msf_form_nr * msf_length + msf_form_nr;
-//   // msf_bullets[msf_bullets_a].className += " msf_bullet_active";
-// }
+      let getPeriod = fieldSet.querySelectorAll("[name=period]");
+      let getAmount = fieldSet.querySelectorAll("[name=amount]");
+      let getCurrency = fieldSet.querySelectorAll("[name=currency]");
 
-// goes one step back
-// function msf_btn_back() {
-//   msf_getFsTag[msf_form_nr].className = "msf_hide";
-//   msf_form_nr = msf_form_nr - 1;
-//   msf_getFsTag[msf_form_nr].className = "msf_showhide";
-// }
+      // let period = "";
+      // let amount = "";
+      // let currency = "";
 
-// console.log("loaded");
+      //Extract the period
+      for (p of getPeriod) {
+        if (p.checked) {
+          period = p.value;
+
+          console.log("This the period: " + period);
+        }
+      }
+      //Extract the amount
+      for (a of getAmount) {
+        //console.log(am.value);
+        amount = a.value;
+
+        console.log("This the amount: " + amount);
+      }
+      for (c of getCurrency) {
+        currency = c.value;
+        console.log("This the currency " + currency);
+      }
+    }
+
+    // console.log(selectPeriodOut + amount + currency);
+
+    let postBod =
+      "period=" + period + "&amount=" + amount + "&currency=" + currency;
+
+    //console.log(postBod);
+
+    fetch("/api/usersmeta", {
+      method: "POST",
+      body: postBod,
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+      },
+    })
+      .then((res) => {
+        console.log("Server request was successful " + res);
+
+        return;
+
+        window.location.href = "dashboard.html";
+      })
+      .catch((err) => {
+        err.then((errorData) => {
+          //console.dir(errorData);
+          window.location.href = "login.html";
+          console.log(
+            "There was en error on the server side: " + errorData.error
+          );
+        });
+      });
+  },
+  false
+);
