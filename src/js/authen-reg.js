@@ -70,7 +70,7 @@ regForm.addEventListener(
       })
       .catch((err) => {
         err.then((errorData) => {
-          //console.dir(errorData);
+          console.dir(errorData);
           window.location.href = "login.html";
           console.log(
             "There was en error on the server side: " + errorData.error

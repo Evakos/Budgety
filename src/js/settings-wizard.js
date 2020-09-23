@@ -150,9 +150,9 @@ getForm.addEventListener(
       },
     })
       .then((res) => {
-        console.log("Server request was successful " + res);
+        console.log("Server request was successfully" + res.statusText);
 
-        return;
+        //return;
 
         window.location.href = "dashboard.html";
       })

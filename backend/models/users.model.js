@@ -24,6 +24,10 @@ const userSchema = new Schema({
     required: true,
     trim: true,
   },
+  usermeta: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "UserMeta",
+  },
 });
 
 // userSchema.path('email').validate = function (email) {

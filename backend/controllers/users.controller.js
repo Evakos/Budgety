@@ -9,6 +9,7 @@ const connUri = process.env.ATLAS_CONN_URL;
 module.exports = {
   //Handle Add User
   add: (req, res) => {
+    //console.dir(req.session.user);
     mongoose.connect(
       connUri,
       {
@@ -30,6 +31,7 @@ module.exports = {
               result.status = status;
               result.result = user;
               console.log(user);
+              req.session.user = user;
             } else if (!user) {
               //result.error = err;
               console.log("No user....Creating User ");
@@ -42,6 +44,7 @@ module.exports = {
             if (!err) {
               result.status = status;
               result.result = user;
+              req.session.user = user;
             } else {
               status = 500;
               result.status = status;
@@ -144,6 +147,8 @@ module.exports = {
         let status = 200;
         if (!err) {
           const payload = req.decoded;
+
+          console.log(payload);
           // TODO: Log the payload here to verify that it's the same payload
           //  we used when we created the token
           // console.log('PAYLOAD', payload);
