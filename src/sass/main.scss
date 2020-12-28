@@ -97,9 +97,9 @@ label {
 }
 
 .header {
-  width: 1380px;
+  width: 1180px;
   margin: 0 auto;
-  padding: 0.5em 0.75rem;
+  padding: 0.5em 0.75em;
 }
 
 .sidebar {
@@ -195,11 +195,11 @@ element {
 }
 
 .container {
-  background: transparent;
-  width: 1380px;
-  margin: 0 auto;
-  margin-top: 4rem;
-  padding-left: 6rem;
+	background: transparent;
+	width: 1180px;
+	margin: 0 auto;
+	margin-top: 4rem;
+	/* padding-left: 6rem; */
 }
 
 //Helpers
