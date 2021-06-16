@@ -10,7 +10,7 @@ const UserMeta = require("./models/usersMeta.model.js");
 // const cookieParser = require('cookie-parser');
 // const session = require('express-session');
 const logger = require("morgan");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const app = express();
 // app.use(cookieParser());
@@ -24,11 +24,11 @@ const app = express();
 const router = express.Router();
 
 const environment = process.env.NODE_ENV; // development
-const stage = require("./config/database.config")[environment];
+const stage = require("../config/database.config")[environment];
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(
-  bodyParser.urlencoded({
+  express.urlencoded({
     extended: true,
   })
 );
