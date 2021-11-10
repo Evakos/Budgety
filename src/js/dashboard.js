@@ -1,22 +1,112 @@
-import Chart from "chart.js";
+//import Chart from "chart.js";
 
-//Make a request for the expense from the API.
+fetch("/api/user")
+  .then((resp) => resp.json())
+  .then(function (data) {
+    document.querySelector(".user-name").textContent = data.name;
 
-// const url = 'https://localhost:8080'
+    //console.log(data);
+  });
 
-//let tags = [];
+fetch("/api/confirm/:email/:token")
+  .then((resp) => resp.json())
 
+  // console.log(resp);
 
+  .then((data) => {
+    //Get the Cookie
+    function getCookie(cName) {
+      const name = cName + "=";
+      const cDecoded = decodeURIComponent(document.cookie); //to be careful
+      const cArr = cDecoded.split("; ");
+      let res;
+      cArr.forEach((val) => {
+        if (val.indexOf(name) === 0) res = val.substring(name.length);
+      });
+      return res;
+    }
+
+    const initialCookie = getCookie("verifynotice");
+
+    //console.log(initialCookie);
+
+    if (data.status == 400 && initialCookie == null) {
+      //console.log("400");
+      //Get the message wrapper div
+      const getMessageWrapper = document.querySelector(".message-wrapper");
+
+      //Create the first span for the verification error
+      const createFirstSpan = document.createElement("span");
+
+      //Add a class to the verification error span
+      createFirstSpan.classList.add("verify-error");
+
+      // Add the verification span to the message wrapper
+      getMessageWrapper.appendChild(createFirstSpan);
+
+      //Insert message from confirmation API.
+      createFirstSpan.innerText = data.msg;
+
+      // Create Second Span
+      setTimeout(function () {
+        const createSecondSpan = document.createElement("span");
+
+        createSecondSpan.classList.add("close-verification");
+
+        const getErrorDiv = document.querySelector(".verify-error");
+
+        //console.log(getErrorDiv);
+
+        getErrorDiv.appendChild(createSecondSpan);
+
+        createSecondSpan.innerHTML = '<i class="fas fa-times"></i>';
+      }, 1);
+
+      //Set name of the the cookie
+      let verifynotice = "verifynotice";
+
+      // Set a Cookie
+      function setCookie(cName, cValue, expDays) {
+        let date = new Date();
+        date.setTime(date.getTime() + expDays * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+      }
+
+      setTimeout(function () {
+        const getVerificationNotice = document.querySelector(
+          ".close-verification"
+        );
+
+        getVerificationNotice.addEventListener("click", function () {
+          setCookie(verifynotice, "true", 1);
+
+          getMessageWrapper.style.opacity = "0";
+
+          setTimeout(function () {
+            getMessageWrapper.remove();
+          }, 500);
+          // getMessageWrapper.addEventListener("transitionend", () =>
+
+          // );
+        });
+      }, 1);
+    } else {
+      console.log("200");
+    }
+  });
 
 fetch("/api/expense")
   .then((resp) => resp.json())
 
   .then(function (data) {
-    console.log("This is the: " + data);
-
     const expenses = data;
 
+    //console.log("This is the: " + expenses);
+
     expenses.forEach(function (element) {
+      //console.log("This is the: " + element.title);
+
       let d = document.querySelector(".expense-tags");
 
       let s = document.createElement("span");
@@ -114,42 +204,42 @@ let budget = 1600; //We will get this on input in the UI.
 
 let budgetPercent = (budget / budget) * 100; //Return as a percent don't really need this.
 
-/// Need this exaplining still
+/// Need this expalining still
 function add(accumulator, a) {
   return accumulator + a.amount;
 }
 
-const ctx = document.getElementById("chart");
+// const ctx = document.getElementById("chart");
 
-let expenseChart = new Chart(ctx, {
-  type: "doughnut",
-  data: {
-    datasets: [
-      {
-        label: "My First dataset",
-        fillColor: "rgba(220,220,220,0.5)",
-        backgroundColor: "rgb(254, 254, 254)",
-        borderColor: "rgba(255, 255, 255, .5)",
-        borderWidth: "0",
-        data: [100, 100],
-      },
-    ],
-  },
-  options: {
-    animation: {
-      duration: 2000,
-      easing: "linear",
-    },
-    responsive: false,
-    maintainAspectRatio: false,
-    aspectRatio: 1,
+// let expenseChart = new Chart(ctx, {
+//   type: "doughnut",
+//   data: {
+//     datasets: [
+//       {
+//         label: "My First dataset",
+//         fillColor: "rgba(220,220,220,0.5)",
+//         backgroundColor: "rgb(254, 254, 254)",
+//         borderColor: "rgba(255, 255, 255, .5)",
+//         borderWidth: "0",
+//         data: [100, 100],
+//       },
+//     ],
+//   },
+//   options: {
+//     animation: {
+//       duration: 2000,
+//       easing: "linear",
+//     },
+//     responsive: false,
+//     maintainAspectRatio: false,
+//     aspectRatio: 1,
 
-    animation: {
-      animateRotate: false,
-      render: false,
-    },
-  },
-});
+//     animation: {
+//       animateRotate: false,
+//       render: false,
+//     },
+//   },
+// });
 
 //Empty UI Constructor
 
@@ -258,7 +348,6 @@ document.querySelector(".button").addEventListener("click", function (e) {
 
   let expenseObj = {
     amount: amountNo,
-
     id: expense.id,
   };
 

@@ -1,66 +1,44 @@
-<!DOCTYPE html>
-<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
-<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
-<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
-<!--[if gt IE 9]><html lang="en"><![endif]-->
-<!--[if !IE]><html lang="en"><![endif]-->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1"
-  />
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Budgety - A Nice Personal Finance App</title>
-  <!-- <link rel="icon" type="image/png" sizes="16x16" href=""> -->
-</head>
+  <div class="message-wrapper"></div>
+<div class="wrapper-dashboard">
 
-<body>
-  <div class="wrapper">
-    <div class="sidebar">
-      <ul>
-        <li class="home"></li>
-        <li class="sliders"></li>
-        <li class="buoy"></li>
-        <li class="power"></li>
-      </ul>
-    </div>
-    <div class="main">
-      <div class="header-wrapper">
-        <div class="header">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropbtn">About</a>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-              </div>
-            </li>
-            <li>
-              <a href="api/logout"> <i class="far fa-user"></i>Logout</a>
-            </li>
-          </ul>
-        </div>
+  <div class="sidebar">
+    <ul>
+      <li class="home"></li>
+      <li class="sliders"></li>
+      <li class="buoy"></li>
+      <a href="api/logout"><li class="power"></li></a>
+    </ul>
+  </div>
+  <div class="main">
+ 
+    <div class="header-wrapper">
+      <div class="header">
+        <ul>
+          <li></li>
+          <li class="notification"> <span class="notification-numbers">2</span> <img src="/src/img/notification.svg" /></li>
+          <li></li>
+          
+          <li>
+            <a href="api/logout"> <i class="far fa-user"></i>Logout</a>
+          </li>
+        </ul>
       </div>
-      <!-- <div class='container'> -->
-      <div class="grid-container">
-        <div class="grid-item-1">
+    </div>
+
+    <!-- <div class='container'> -->
+    <div class="grid-container">
+      <div class="grid-item-1">
+        <div class="flex">
           <div class="user-avatar">
-            <img
-              src="https://via.placeholder.com/150/0000FF/808080?Text=Digital.com"
-              ?
-            />
+            <img src="/src/img/avatar-blank.svg" />
           </div>
           <h2>
-            <span class="greeting"></span
-            ><span class="user-name"> Chris.</span> You have set a budget of:
+            <span class="greeting"></span>
+            <span class="user-name"></span> You have set a budget of:
             <span class="weekly-budget">$1600</span> for the week.
           </h2>
+        </div>
         </div>
         <div class="grid-item-2">
           <div class="col-header">
@@ -110,16 +88,25 @@
         </div>
         <div class="grid-item-4">
           <div class="col-header">
-            <h2>Total</h2>
+            <h3>Connected Accounts</h3>
           </div>
+
+          <div class="credit-card"></div>
+
+          <div class="credit-card"></div>
+
+
+
+
+
           <div id="expense-totals"></div>
         </div>
-        <div class="box e">
+        <!-- <div class="box e">
           <div class="chart-container">
             <canvas id="chart" width="200" height="200"></canvas>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
-</body>
+</div>

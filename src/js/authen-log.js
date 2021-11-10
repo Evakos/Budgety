@@ -6,11 +6,13 @@ logForm.addEventListener(
     e.preventDefault();
 
     // Collect the data from the input elements
-    let userName = logForm.querySelector("[name=name]").value;
+    // let name = logForm.querySelector("[name=name]").value;
     let email = logForm.querySelector("[name=email]").value;
     let pwd = logForm.querySelector("[name=password]").value;
 
-    let postBody = "name=" + userName + "&email=" + email + "&password=" + pwd;
+    let postBody = "&email=" + email + "&password=" + pwd;
+
+    console.log(postBody);
 
     let spinner = logForm.querySelector(".button");
 
@@ -25,7 +27,6 @@ logForm.addEventListener(
       },
     })
       .then((data) => {
-        console.log("Server request was successful");
         switch (data.status) {
           case 200:
             return data.json();
@@ -38,25 +39,26 @@ logForm.addEventListener(
         }
       })
       .then((jsonData) => {
-        //console.dir(jsonData);
+        console.dir(jsonData.result.name);
         // First save the token to localStorage
         window.localStorage.setItem("token", jsonData.token);
+
+        //console.log("Here " + jsonData);
+
         // Second: Forward to dashboard page
         window.location.href = "dashboard.html";
       })
       .catch((err) => {
-        err.then((errorData) => {
+        err.then((err) => {
           //console.dir(errorData);
 
-          let error = logForm.querySelector(".messages");
+          let error = logForm.querySelector(".messages-wrapper");
 
           error.innerHTML = '<span class="error">Error! No User</span>';
 
           spinner.innerHTML = "Login";
 
-          console.log(
-            "There was en error on the server side: " + errorData.error
-          );
+          //console.log("There was en error on the server side: " + err);
         });
       });
 

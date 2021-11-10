@@ -16,9 +16,10 @@
 </head>
 
 <body>
+  
   <div class="wrapper">
-    <div class="header-wrapper">
-      <div class="header">
+    <div class="top-bar-wrapper">
+      <div class="top-bar-inner">
         <ul>
           <li><a href="/">Home</a></li>
           <li class="dropdown">
@@ -33,19 +34,35 @@
         </ul>
       </div>
     </div>
+    <div class="section">
     <div class='container'>
-      <div class="login">
+      <div class="col">
         <h3>Login</h3>
-        <form id="login-form">
-          <input type="text" name="name" placeholder="Username" required="">
-          <input type="text" name="email" placeholder="E-mail" required="">
-          <input type="password" name="password" placeholder="Password" id="password" required="">
+        <form id="login-form" class=''>
+          <!-- <div class="name-wrap">
+            <input type="text" name="name" placeholder="Name">
+   </div> -->
+            <div class="email-wrap">
+            <input type="text" name="email" placeholder="E-mail">
+   </div>
+            <div class="password-wrap">
+            <input type="password" name="password" placeholder="Password" id="password"> 
+            <span class="password-reveal"></span>
+        </div>
+           
+          <div class='messages-wrapper'></div>
+
+          <div class="submit-wrapper">
           <button class='button'>Login</button>
-          <div class='messages'></div>
+          <p class="sign-up-meta">Don't have a Budgety account? <br> <a href="/index.html">Sign up.</a></p>
+        </div>
+
         </form>
+
       </div>
     </div>
   </div>
+</section>
 </body>
 
 </html>

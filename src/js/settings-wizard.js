@@ -1,7 +1,7 @@
 //Get all the Fieldsets
 const getFieldSet = document.getElementsByTagName("fieldset");
 
-// declaring the active fieldset & the total fieldset count
+// Declaring the active fieldset & the total fieldset count
 let fsInit = 0;
 const fieldset = getFieldSet[fsInit];
 console.log("Number of fieldsets: " + fieldset);

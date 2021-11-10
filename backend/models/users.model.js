@@ -24,6 +24,7 @@ const userSchema = new Schema({
     required: true,
     trim: true,
   },
+  isVerified: { type: "Boolean", default: false },
   usermeta: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "UserMeta",

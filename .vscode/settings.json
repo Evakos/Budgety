@@ -4,5 +4,11 @@
   "workbench.colorTheme": "Material Theme Darker High Contrast",
   "workbench.iconTheme": "material-icon-theme",
   "html.format.indentInnerHtml": true,
-  "html.format.preserveNewLines": false
+  "html.format.preserveNewLines": false,
+  "workbench.colorCustomizations": {
+  "tab.activeBackground": "#1900fc",
+    "tab.activeForeground" : "#ffffff",
+},
+"workbench.editor.highlightModifiedTabs": true
 }
+

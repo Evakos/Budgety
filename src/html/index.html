@@ -1,23 +1,8 @@
-<!doctype html>
-<!--[if lt IE 8]><html lang="en" class="ie7"><![endif]-->
-<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
-<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
-<!--[if gt IE 9]><html lang="en"><![endif]-->
-<!--[if !IE]><html lang="en"><![endif]-->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Budgety - A Nice Personal Finance App</title>
-</head>
-
-<body>
   <div class="wrapper">
-    <div class="header-wrapper">
-      <div class="header">
+    <div class="top-bar-wrapper">
+      <div class="top-bar-inner">
+        <nav>
         <ul>
           <li><a href="/">Home</a></li>
           <li class="dropdown">
@@ -30,18 +15,44 @@
           </li>
           <li><a href="login.html"> <i class="far fa-user"></i> Login</a></li>
         </ul>
+      </nav>
       </div>
     </div>
-    <div class="section primary">
+    <div class="section">
     <div class="container">
-      <div class="grid-wrapper">
-        <div class="box hero-left">
+        <div class="col">
+          
           <h1>Let's help you get your finances in order</h1>
-          <!-- <div class='button'>Find Out More</div> -->
-        </div>
-        <div class="box hero-right">
-          <!-- <h3>Register</h3> -->
+
+          <p>Sign up for free. No credit card required.</p>
+
           <form id="reg-form" class='sign-in'>
+            <div class="name-wrap">
+              <input type="text" name="name" placeholder="Full Name">
+              </div>
+              <div class="email-wrap">
+              <input type="text" name="email" placeholder="E-mail">
+     </div>
+              <div class="password-wrap">
+              <input type="password" name="password" placeholder="Password" id="password"> 
+              <span class="password-reveal"></span>
+          </div>
+             
+            <div class='messages-wrapper'></div>
+
+            <div class="submit-wrapper">
+            <button class='button'>Register</button>
+            <p class="sign-up-meta">Already have a Budgety account? <br> <a href="/login.html">Log in.</a></p>
+          </div>
+
+          </form>
+  
+        </div>
+        <div class="col">
+
+          <img src="/src/img/hero-img.svg" class="hero-img" alt="Home Hero Image"> 
+
+          <!-- <form id="reg-form" class='sign-in'>
             <div class='inp user-name '>
               <input type="text" name="name" placeholder="Full Name">
             </div>
@@ -58,15 +69,12 @@
             </div>
             <div class='messages'></div>
             <button class='button full-width'>Register</button>
-          </form>
-          <p><a href="#"> By clicking register, I agree to your terms</a> | <a href="#"> Already Registerd. Login</a>
-          </p>
+          </form> -->
+          <!-- <p><a href="#"> By clicking register, I agree to your terms</a> | <a href="#"> Already Registerd. Login</a>
+          </p> -->
         </div>
-      </div>
+      
     </div>
   </div> <!-- End Section -->
   </div>
   </div>
-</body>
-
-</html>
