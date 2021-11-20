@@ -249,6 +249,7 @@ module.exports = {
   //Handle Logout
 
   logout: (req, res) => {
+    req.session.destroy();
     res.redirect("/");
   },
 

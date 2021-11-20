@@ -1,34 +1,96 @@
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
 
-  <div class="message-wrapper"></div>
+ 
 <div class="wrapper-dashboard">
 
   <div class="sidebar">
     <ul>
-      <li class="home"></li>
-      <li class="sliders"></li>
+      <a href="/" id="sidebar-logo"><img src="/src/img/log-out.svg" /></li></a>
+    </ul>
+    <ul class="sidebar-nav">
+      <li class="home"><img src="/src/img/home.svg" /></li>
+      <li class="settings"><img src="/src/img/sliders.svg" /></li>
       <li class="buoy"></li>
-      <a href="api/logout"><li class="power"></li></a>
+      
+    </ul>
+    <ul>
+      <a href="api/logout" id="sidebar-logout"><img src="/src/img/log-out.svg" /></li></a>
     </ul>
   </div>
   <div class="main">
+
+    <div class="message-wrapper"></div>
  
     <div class="header-wrapper">
+
       <div class="header">
-        <ul>
-          <li></li>
-          <li class="notification"> <span class="notification-numbers">2</span> <img src="/src/img/notification.svg" /></li>
-          <li></li>
+
+        <!-- <div class="logo">Logo</div> -->
+        <nav>
+          <ul class="dashboard">
+
+            <li>
+              
+              
+              <img id="dark-mode" src="/src/img/moon.svg">
+              
+            
+      
+            
+            </li>
+              
+         
+                
+            <li class="notification" id="notifications-bell"> 
+              
+              <span class="notification-numbers">2</span> 
+              
+              <a href='#'><img src="/src/img/notification.svg" /></a>
+            
+            <ul id="notifications-dropdown">
+
+              <li>Notification</li>
+              <li>Notification</li>
+              <li>Notification</li>
+              <li>Notification</li>
+              <li>Notification</li>
+
+            </ul>
+            
+            </li>
+
+
+          <li id="profile">
+            
+            <span class="client-name"><a href='#'>Maria Gianneloudi<i class="fas fa-caret-down"></i></a></span><img src="/src/img/avatar.jpg" />
           
-          <li>
-            <a href="api/logout"> <i class="far fa-user"></i>Logout</a>
+          
+            <ul id="account-dropdown">
+
+              <li>Profile</li>
+              <li>Profile</li>
+              <li>Profile</li>
+              <li>Profile</li>
+              <li>Profile</li>
+
+            </ul>
+          
+          
+          
+          
           </li>
+          
+        
         </ul>
-      </div>
+        
+        </nav>
+        </div>
     </div>
 
     <!-- <div class='container'> -->
     <div class="grid-container">
-      <div class="grid-item-1">
+      <div class="grid-item full-width-grid">
         <div class="flex">
           <div class="user-avatar">
             <img src="/src/img/avatar-blank.svg" />
@@ -40,9 +102,9 @@
           </h2>
         </div>
         </div>
-        <div class="grid-item-2">
+        <div class="grid-item">
           <div class="col-header">
-            <h2>Select Expense</h2>
+            <h3>Select Expense</h3>
           </div>
           <form id="expense-form">
             <div class="expense-tags" style="margin-bottom: 3rem"></div>
@@ -66,9 +128,9 @@
             </div>
           </form>
         </div>
-        <div class="grid-item-3">
+        <div class="grid-item">
           <div class="col-header">
-            <h2>Expense Details</h2>
+            <h3>Recent Outgoings</h3>
           </div>
           <table>
             <!-- <thead>
@@ -86,14 +148,28 @@
                 </tfoot> -->
           </table>
         </div>
-        <div class="grid-item-4">
+        <div class="grid-item">
+          <div class="flex relative height-full">
           <div class="col-header">
             <h3>Connected Accounts</h3>
+            <span class="more"><img src="/src/img/more-horizontal.svg" /></span>
           </div>
 
-          <div class="credit-card"></div>
+         
+
+
+          <div id="accounts-holder"></div>
 
           <div class="credit-card"></div>
+
+          <div class="col-footer">
+            <span class="add-account" id="link-account">
+            <img src="/src/img/plus.svg" />
+          </span>
+          
+          </div>
+
+          </div>
 
 
 

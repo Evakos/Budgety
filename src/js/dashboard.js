@@ -1,5 +1,105 @@
 //import Chart from "chart.js";
 
+import { listenerCount } from "events";
+
+// const notificationDropdown = document.getElementById('notifications-dropdown');
+
+// const notificationBell = document.getElementById('notifications-bell');
+
+// notificationBell.addEventListener("mouseover", function() {
+//   // highlight the mouseover target
+//   notificationDropdown.style.display = "flex";
+
+// });
+
+// notificationBell.addEventListener("mouseout", function() {
+//   // highlight the mouseover target
+//   notificationDropdown.style.display = "none";
+
+// });
+
+const darkMode = document.getElementById("dark-mode");
+
+darkMode.addEventListener("click", function (event) {
+  let primary = "/src/img/moon.svg";
+  let secondary = "/src/img/sun.svg";
+
+  let imageSourceAttribute = event.target.getAttribute("src");
+
+  //console.log(imageSourceAttribute);
+
+  if (imageSourceAttribute.match(primary)) {
+    darkMode.setAttribute("src", secondary);
+  } else {
+    darkMode.setAttribute("src", primary);
+  }
+
+  //console.log("dark mode clicked");
+});
+
+// Fetch the API into to create the link token
+fetch("/api/create_link_token")
+  .then((resp) => resp.json())
+  .then(function (data) {
+    const linkHandler = Plaid.create({
+      token: data.link_token,
+      onSuccess: (public_token, metadata) => {
+        fetch("/api/set_access_token", {
+          method: "POST",
+          body: JSON.stringify({
+            publicToken: public_token,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
+      },
+      onLoad: () => {},
+      onExit: (err, metadata) => {},
+      onEvent: (eventName, metadata) => {},
+      receivedRedirectUri: null,
+    });
+
+    document
+      .getElementById("link-account")
+      .addEventListener("click", function () {
+        linkHandler.open();
+        console.log("Link Handler");
+      });
+
+    // console.log(`This is the body: ${publicToken}`);
+
+    document.getElementById("logout").addEventListener("click", function () {
+      linkHandler.exit({ force: true });
+      console.log("Logged out");
+      alert("Logged Out");
+    });
+  })
+  .catch((err) => {
+    err.then((err) => {
+      console.log(`This is the error: ${err}`);
+    });
+  });
+
+fetch("/api/accounts")
+  .then((resp) => resp.json())
+  .then(function (data) {
+    console.log("Something from accounts: " + JSON.stringify(data));
+
+    // Get the app element
+    const accounts = document.getElementById("#accounts-holder");
+
+    // Create markup
+    accounts.innerHTML =
+      "<ul>" +
+      data.accounts
+        .map(function (dat) {
+          return "<li>" + dat + "</li>";
+        })
+        .join("") +
+      "</ul>";
+  });
+
 fetch("/api/user")
   .then((resp) => resp.json())
   .then(function (data) {
@@ -130,7 +230,7 @@ fetch("/api/expense")
     console.log(error);
   })
   .finally(function () {
-    console.log("Got the Expenses Object");
+    //console.log("Got the Expenses Object");
   });
 
 //Greeting

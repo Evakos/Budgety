@@ -108,6 +108,10 @@ const routes3 = require("./backend/routes/usersMeta/index.usersMeta.routes.js");
 
 app.use("/api", routes3(router));
 
+const routes4 = require("./backend/routes/plaid/index.plaid.routes.js");
+
+app.use("/api", routes4(router));
+
 app.listen(`${stage.port}`, () => {
   console.log(`Server now listening at localhost:${stage.port}`);
 });
